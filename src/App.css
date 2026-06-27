@@ -1,0 +1,54 @@
+.page-hero{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    color:white;
+
+}
+
+.page-hero h1{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+}
+
+.page-hero p{
+
+    max-width:700px;
+
+    font-size:1.3rem;
+
+    line-height:1.6;
+
+}
+body.dark {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+body.dark .header {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+body.dark .nav-links li a {
+  color: #e2e8f0;
+}
+
+body.dark .nav-links li a:hover {
+  color: #38bdf8;
+}

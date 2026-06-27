@@ -1,0 +1,118 @@
+/* ================= ABOUT PAGE ================= */
+
+.about-hero {
+  min-height: 100vh;
+  background: #08111f;
+  color: white;
+  padding: 100px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+/* ================= TEXT ================= */
+
+.about-container h1 {
+  font-size: 50px;
+  color: #38bdf8;
+  margin-bottom: 20px;
+}
+
+.about-container h2 {
+  margin-top: 40px;
+  color: #38bdf8;
+  font-size: 30px;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+/* ================= LIST ================= */
+
+.skills-list {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.skills-list li {
+  margin-bottom: 12px;
+  font-size: 17px;
+  color: #e2e8f0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.skills-list li:hover {
+  color: #38bdf8;
+  transform: translateX(10px);
+}
+
+/* ================= ANIMATIONS ================= */
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.slide-in {
+  animation: slideIn 1s ease forwards;
+}
+
+.slide-in.delay {
+  animation-delay: 0.3s;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ================= HOVER CARD EFFECT ================= */
+
+.about-container:hover {
+  transform: scale(1.01);
+  transition: 0.4s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 30px;
+  }
+
+  .about-container h1 {
+    font-size: 35px;
+  }
+}

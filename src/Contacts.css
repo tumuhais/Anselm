@@ -1,0 +1,147 @@
+/* ================= CONTACT PAGE ================= */
+
+.contacts-hero {
+  min-height: 100vh;
+  padding: 100px 10%;
+  background: radial-gradient(circle at top, #0f1b2e, #08111f);
+  color: white;
+  text-align: center;
+}
+
+/* ================= TITLE ================= */
+
+.contacts-hero h1 {
+  font-size: 55px;
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.contacts-hero p {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: #cbd5e1;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ================= FORM ================= */
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(56, 189, 248, 0.15);
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ================= INPUTS ================= */
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  outline: none;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+/* focus effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  transform: scale(1.02);
+}
+
+/* textarea size */
+.contact-form textarea {
+  min-height: 140px;
+  resize: none;
+}
+
+/* ================= BUTTON ================= */
+
+.contact-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #38bdf8;
+  color: #08111f;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* hover */
+.contact-form button:hover {
+  background: #0ea5e9;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+}
+
+/* click effect */
+.contact-form button:active {
+  transform: scale(0.98);
+}
+
+/* ================= ANIMATIONS ================= */
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.fade-in.delay {
+  animation-delay: 0.3s;
+}
+
+.slide-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .contacts-hero h1 {
+    font-size: 35px;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}

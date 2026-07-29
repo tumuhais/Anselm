@@ -1,53 +1,122 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaLaptopCode,
+  FaNetworkWired,
+  FaShieldAlt,
+  FaRobot,
+  FaCheck,
+  FaArrowRight,
+} from "react-icons/fa";
 import "./Services.css";
+
+const SERVICES_DATA = [
+  {
+    icon: FaLaptopCode,
+    title: "Web Engineering & Development",
+    description:
+      "Crafting high-performance, responsive, and scalable web applications engineered with clean UI architectures.",
+    features: [
+      "Custom React & Single Page Apps",
+      "Responsive Layouts & CSS Frameworks",
+      "RESTful API Integration",
+      "Frontend Performance Optimization",
+    ],
+  },
+  {
+    icon: FaNetworkWired,
+    title: "Network Infrastructure & Design",
+    description:
+      "Designing, testing, and optimizing multi-building network topologies with enterprise routing and switching standards.",
+    features: [
+      "VLAN Segmentation & Subnetting",
+      "Cisco Router & Switch Configuration",
+      "DHCP, NAT & Routing Protocols",
+      "Network Troubleshooting & Audits",
+    ],
+  },
+  {
+    icon: FaShieldAlt,
+    title: "Cybersecurity & System Defense",
+    description:
+      "Implementing essential security protocols and access management strategies to protect corporate and educational networks.",
+    features: [
+      "Firewall & ACL Implementation",
+      "Network Isolation Protocols",
+      "Access Control & Authentication",
+      "Security Best Practices Assessment",
+    ],
+  },
+  {
+    icon: FaRobot,
+    title: "AI Solutions & Automation",
+    description:
+      "Building intelligent workflows and data-driven prediction platforms to streamline operational efficiency.",
+    features: [
+      "Predictive Data Modeling",
+      "Automated Workflow Scripts",
+      "Intelligent Analytics Integration",
+      "Homelab & Server Virtualization (Proxmox)",
+    ],
+  },
+];
 
 function Services() {
   return (
-    <section className="services-hero">
-
-      <h1 className="fade-in">What I Do</h1>
-
-      <p className="fade-in delay">
-        As a Web Developer, Network Engineer, and AI enthusiast, I build modern,
-        scalable, and secure digital solutions tailored to real-world needs.
-      </p>
-
-      <div className="services-grid">
-
-        <div className="service-card slide-up">
-          <h2>Web Development</h2>
-          <p>
-            Building responsive, fast, and modern websites using React, HTML,
-            CSS, and JavaScript.
+    <section className="services-section">
+      <div className="services-container">
+        {/* Header */}
+        <div className="services-header">
+          <span className="section-subtitle">Services & Expertise</span>
+          <h1 className="section-title">
+            Solutions Tailored to <span className="highlight">Your Needs</span>
+          </h1>
+          <p className="services-intro">
+            From modern web application development to complex campus network topologies, I provide comprehensive technical services built on industry standards.
           </p>
         </div>
 
-        <div className="service-card slide-up">
-          <h2>Network Engineering</h2>
-          <p>
-            Designing and configuring secure and efficient network infrastructures
-            for organizations.
-          </p>
+        {/* Services Grid */}
+        <div className="services-grid">
+          {SERVICES_DATA.map((service, idx) => {
+            const IconComponent = service.icon;
+            return (
+              <div key={idx} className="service-card">
+                <div className="service-icon-wrapper">
+                  <IconComponent className="service-icon" />
+                </div>
+                <h2>{service.title}</h2>
+                <p className="service-desc">{service.description}</p>
+
+                <ul className="service-features">
+                  {service.features.map((feat, fIdx) => (
+                    <li key={fIdx}>
+                      <FaCheck className="feature-check" />
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link to="/contacts" className="service-link">
+                  <span>Inquire Now</span>
+                  <FaArrowRight />
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
-        <div className="service-card slide-up">
-          <h2>Cybersecurity</h2>
-          <p>
-            Implementing security practices to protect systems, data, and users
-            from cyber threats.
-          </p>
+        {/* Call to Action Banner */}
+        <div className="services-cta-box">
+          <div className="cta-content">
+            <h2>Have a project or network in mind?</h2>
+            <p>Let's collaborate to build reliable software and secure infrastructures for your operations.</p>
+          </div>
+          <Link to="/contacts" className="cta-btn">
+            Get Started
+          </Link>
         </div>
-
-        <div className="service-card slide-up">
-          <h2>AI & Automation</h2>
-          <p>
-            Developing smart systems and automation tools to improve efficiency
-            and decision-making.
-          </p>
-        </div>
-
       </div>
-
     </section>
   );
 }

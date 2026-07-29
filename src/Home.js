@@ -1,470 +1,199 @@
 import React from "react";
-import "./Home.css";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import { 
+  FaReact, 
+  FaHtml5, 
+  FaCss3Alt, 
+  FaJs, 
+  FaNodeJs, 
+  FaGitAlt, 
+  FaGithub, 
+  FaLinux, 
+  FaDownload, 
+  FaArrowRight 
+} from "react-icons/fa";
+import { 
+  SiCisco, 
+  SiMysql, 
+  SiProxmox, 
+  SiFirebase 
+} from "react-icons/si";
 
 import profile from "./assets/profile1.jpg";
-
-import {
-
-FaReact,
-FaHtml5,
-FaCss3Alt,
-FaJs,
-FaNodeJs,
-FaGitAlt,
-FaGithub,
-FaLinux
-
-} from "react-icons/fa";
-
-import {
-
-SiCisco,
-SiMysql,
-SiProxmox,
-SiFirebase
-
-} from "react-icons/si";
 import Footer from "./Footer";
+import "./Home.css";
 
+// 1. Data mapping for cleaner, scalable maintenance
+const TECH_STACK = [
+  { name: "React", icon: FaReact },
+  { name: "HTML5", icon: FaHtml5 },
+  { name: "CSS3", icon: FaCss3Alt },
+  { name: "JavaScript", icon: FaJs },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Git", icon: FaGitAlt },
+  { name: "GitHub", icon: FaGithub },
+  { name: "Cisco", icon: SiCisco },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Linux", icon: FaLinux },
+  { name: "Proxmox", icon: SiProxmox },
+  { name: "Firebase", icon: SiFirebase },
+];
+
+const STATS = [
+  { label: "Completed Projects", value: "10+" },
+  { label: "Technologies Mastered", value: "15+" },
+  { label: "Years of Experience", value: "2+" },
+  { label: "Client Satisfaction", value: "100%" },
+];
+
+const FEATURED_PROJECTS = [
+  {
+    id: 1,
+    title: "Portfolio Website",
+    description: "Responsive React portfolio showcasing projects and modern frontend design.",
+    category: "Web Development",
+  },
+  {
+    id: 2,
+    title: "AI Student Predictor",
+    description: "Machine learning system designed to analyze and predict student performance.",
+    category: "Artificial Intelligence",
+  },
+  {
+    id: 3,
+    title: "Campus Network Design",
+    description: "Enterprise Cisco VLAN implementation with DHCP, NAT, and secure routing.",
+    category: "Network Engineering",
+  },
+];
 
 function Home() {
-
-return (
-
-<>
-
-{/* ================= HERO ================= */}
-
-<section className="hero">
-
-<div className="hero-left">
-
-<h3>Hello, I'm</h3>
-
-<h1>Anselm</h1>
-
-<h2>
-
-Web Developer | Network Engineer | AI Enthusiast
-
-</h2>
-
-<p>
-
-I create modern web applications,
-
-secure network infrastructures,
-
-and intelligent AI solutions that
-
-solve real-world problems.
-
-</p>
-
-<div className="hero-buttons">
-
-<Link to="/projects" className="primary-btn">
-
-View Projects
-
-</Link>
-
-<Link to="/contacts" className="secondary-btn">
-
-Hire Me
-
-</Link>
-
-<a
-
-href="/resume.pdf"
-
-download
-
-className="primary-btn"
-
->
-
-Download CV
-
-</a>
-
-</div>
-
-</div>
-
-<div className="hero-right">
-
-<img
-
-src={profile}
-
-alt="Profile"
-
-/>
-
-</div>
-
-</section>
-
-{/* ================= TECH STACK ================= */}
-
-<section className="tech-stack">
-
-<h1>
-
-Technologies & Tools
-
-</h1>
-
-<Marquee
-
-speed={80}
-
-gradient={false}
-
-pauseOnHover
-
->
-
-<div className="tech-card">
-
-<FaReact />
-
-<p>React</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaHtml5 />
-
-<p>HTML5</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaCss3Alt />
-
-<p>CSS3</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaJs />
-
-<p>JavaScript</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaNodeJs />
-
-<p>Node JS</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaGitAlt />
-
-<p>Git</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaGithub />
-
-<p>GitHub</p>
-
-</div>
-
-<div className="tech-card">
-
-<SiCisco />
-
-<p>Cisco</p>
-
-</div>
-
-<div className="tech-card">
-
-<SiMysql />
-
-<p>MySQL</p>
-
-</div>
-
-<div className="tech-card">
-
-<FaLinux />
-
-<p>Linux</p>
-
-</div>
-
-<div className="tech-card">
-
-<SiProxmox />
-
-<p>Proxmox</p>
-
-</div>
-
-<div className="tech-card">
-
-<SiFirebase />
-
-<p>Firebase</p>
-
-</div>
-
-</Marquee>
-
-</section>
-
-{/* ================= STATS ================= */}
-
-<section className="stats">
-
-<div className="stat">
-
-<h1>
-
-10+
-
-</h1>
-
-<p>
-
-Projects
-
-</p>
-
-</div>
-
-<div className="stat">
-
-<h1>
-
-15+
-
-</h1>
-
-<p>
-
-Technologies
-
-</p>
-
-</div>
-
-<div className="stat">
-
-<h1>
-
-2+
-
-</h1>
-
-<p>
-
-Years Learning
-
-</p>
-
-</div>
-
-<div className="stat">
-
-<h1>
-
-100%
-
-</h1>
-
-<p>
-
-Dedication
-
-</p>
-
-</div>
-
-</section>
-
-{/* ================= ABOUT PREVIEW ================= */}
-
-<section className="about-preview">
-
-<div className="about-container">
-
-<h1>
-
-Who Am I?
-
-</h1>
-
-<p>
-
-I am an Information Technology enthusiast passionate about software development,
-
-computer networking, cybersecurity, virtualization and artificial intelligence.
-
-My goal is to build scalable digital solutions that improve businesses and everyday life.
-
-</p>
-
-<Link
-
-to="/about"
-
-className="primary-btn"
-
->
-
-Read More
-
-</Link>
-
-</div>
-
-</section>
-
-{/* ================= FEATURED PROJECTS ================= */}
-
-<section className="featured">
-
-<h1>
-
-Featured Projects
-
-</h1>
-
-<div className="project-grid">
-
-<div className="project-card">
-
-<h2>
-
-Portfolio Website
-
-</h2>
-
-<p>
-
-Responsive React portfolio showcasing projects and skills.
-
-</p>
-
-<Link
-
-to="/projects"
-
->
-
-Explore
-
-</Link>
-
-</div>
-
-<div className="project-card">
-
-<h2>
-
-AI Student Predictor
-
-</h2>
-
-<p>
-
-Machine learning system for predicting student performance.
-
-</p>
-
-<Link
-
-to="/projects"
-
->
-
-Explore
-
-</Link>
-
-</div>
-
-<div className="project-card">
-
-<h2>
-
-Campus Network Design
-
-</h2>
-
-<p>
-
-Cisco VLAN implementation with DHCP, NAT and routing.
-
-</p>
-
-<Link
-
-to="/projects"
-
->
-
-Explore
-
-</Link>
-
-</div>
-
-</div>
-
-</section>
-{/* ================= CTA ================= */}
-
-<section className="cta">
-
-<h1>
-
-Let's Build Something Amazing
-
-</h1>
-
-<p>
-
-Available for internships, freelance work and collaborations.
-
-</p>
-
-<Link
-
-to="/contacts"
-
-className="primary-btn"
-
->
-
-Contact Me
-
-</Link>
-<Footer/>
-
-</section>
-
-</>
-
-);
-
+  return (
+    <>
+      <main className="home-container">
+        {/* ================= HERO SECTION ================= */}
+        <section className="hero" aria-label="Introduction">
+          <div className="hero-left">
+            <span className="badge">Welcome to my portfolio</span>
+            <h3>Hi, I'm <span className="highlight">Anselm</span></h3>
+            <h1>Web Developer & Network Engineer</h1>
+            <p>
+              I architect modern web applications, secure network infrastructures, 
+              and intelligent AI solutions that bridge the gap between complex hardware 
+              and seamless user experiences.
+            </p>
+            
+            <div className="hero-buttons">
+              <Link to="/projects" className="btn btn-primary">
+                View Projects
+              </Link>
+              <Link to="/contacts" className="btn btn-secondary">
+                Get in Touch
+              </Link>
+              <a 
+                href="/Tumuhaise_Anselm_CV.pdf" 
+                download="Tumuhaise_Anselm_CV.pdf" 
+                className="btn btn-outline"
+                aria-label="Download CV"
+              >
+                <FaDownload className="btn-icon" /> Resume
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-right">
+            <div className="profile-image-wrapper">
+              <img src={profile} alt="Anselm - Web Developer & Network Engineer" />
+            </div>
+          </div>
+        </section>
+
+        {/* ================= TECH STACK MARQUEE ================= */}
+        <section className="tech-stack" aria-label="Technologies and Tools">
+          <div className="section-header text-center">
+            <h2>Technologies & Tools</h2>
+            <p>Frameworks, platforms, and languages I work with</p>
+          </div>
+
+          <Marquee speed={60} gradient={false} pauseOnHover className="marquee-container">
+            {TECH_STACK.map((tech) => {
+              const IconComponent = tech.icon;
+              return (
+                <div key={tech.name} className="tech-card">
+                  <IconComponent className="tech-icon" />
+                  <span>{tech.name}</span>
+                </div>
+              );
+            })}
+          </Marquee>
+        </section>
+
+        {/* ================= STATS SECTION ================= */}
+        <section className="stats" aria-label="Key Metrics">
+          <div className="stats-grid">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="stat-card">
+                <h2>{stat.value}</h2>
+                <p>{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ================= ABOUT PREVIEW ================= */}
+        <section className="about-preview" aria-label="About Me Summary">
+          <div className="about-container">
+            <h2>About Me</h2>
+            <p>
+              I am an Information Technology professional passionate about software development, 
+              computer networking, cybersecurity, virtualization, and artificial intelligence. 
+              My mission is to design scalable digital solutions that simplify systems and optimize performance.
+            </p>
+            <Link to="/about" className="btn btn-primary">
+              Learn More About Me <FaArrowRight className="btn-icon" />
+            </Link>
+          </div>
+        </section>
+
+        {/* ================= FEATURED PROJECTS ================= */}
+        <section className="featured" aria-label="Featured Projects">
+          <div className="section-header">
+            <h2>Featured Projects</h2>
+            <p>A selection of my recent technical work</p>
+          </div>
+
+          <div className="project-grid">
+            {FEATURED_PROJECTS.map((project) => (
+              <article key={project.id} className="project-card">
+                <span className="project-category">{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <Link to="/projects" className="project-link">
+                  Explore Project <FaArrowRight />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ================= CALL TO ACTION ================= */}
+        <section className="cta" aria-label="Call to Action">
+          <div className="cta-content">
+            <h2>Let's Build Something Exceptional Together</h2>
+            <p>
+              Open for full-time opportunities, engineering contracts, and technical collaborations.
+            </p>
+            <Link to="/contacts" className="btn btn-primary">
+              Start a Conversation
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
 }
 
 export default Home;

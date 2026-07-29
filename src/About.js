@@ -1,123 +1,150 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaCode,
+  FaNetworkWired,
+  FaBrain,
+  FaServer,
+  FaGraduationCap,
+  FaRocket,
+  FaCheckCircle,
+} from "react-icons/fa";
 import "./About.css";
 
 function About() {
   return (
-    <section className="about-hero">
-
+    <section className="about-section">
       <div className="about-container">
+        {/* HERO / INTRO HEADER */}
+        <div className="about-header">
+          <span className="section-subtitle">Get To Know Me</span>
+          <h1 className="section-title">
+            Passionate about <span className="highlight">Software</span>,{" "}
+            <span className="highlight">Networking</span> & <span className="highlight">AI</span>.
+          </h1>
+          <p className="about-bio">
+            Hi, I'm <strong>Anselm Tumuhaise</strong>. I specialize in building modern, scalable web applications, designing robust campus network architectures, and exploring intelligent AI systems to solve real-world technical challenges.
+          </p>
+        </div>
 
-        {/* TITLE */}
-        <h1 className="fade-in">About Me</h1>
+        {/* CORE COMPETENCIES / WHAT I DO */}
+        <div className="about-block">
+          <h2 className="block-heading">What I Do</h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="card-icon"><FaCode /></div>
+              <h3>Frontend & Web Engineering</h3>
+              <p>Crafting high-performance, responsive user interfaces with React, modern JavaScript, and clean CSS architectures.</p>
+            </div>
 
-        <p className="slide-in">
-          Hi, I'm <strong>Anselm</strong>, a passionate Web Developer, Network Engineer,
-          and AI enthusiast focused on building modern, scalable, and efficient digital solutions.
-        </p>
+            <div className="service-card">
+              <div className="card-icon"><FaNetworkWired /></div>
+              <h3>Network Infrastructure Design</h3>
+              <p>Designing secure, segmented campus network topologies using Cisco configurations, VLANs, and IP routing strategies.</p>
+            </div>
 
-        <p className="slide-in delay">
-          I enjoy turning ideas into real-world applications using clean UI design,
-          strong backend logic, and reliable networking systems.
-        </p>
+            <div className="service-card">
+              <div className="card-icon"><FaBrain /></div>
+              <h3>AI & Data Systems</h3>
+              <p>Developing predictive models and intelligent solutions like student performance forecasting engines.</p>
+            </div>
 
-        {/* ================= JOURNEY ================= */}
+            <div className="service-card">
+              <div className="card-icon"><FaServer /></div>
+              <h3>Server & System Administration</h3>
+              <p>Deploying environments on Linux servers and managing hypervisors using Proxmox virtualization.</p>
+            </div>
+          </div>
+        </div>
 
-        <h2 className="fade-in">My Journey</h2>
+        {/* EXPERIENCE HIGHLIGHTS */}
+        <div className="about-block">
+          <h2 className="block-heading">Key Project Experience</h2>
+          <div className="experience-list">
+            <div className="exp-item">
+              <FaCheckCircle className="exp-icon" />
+              <div>
+                <h4>Full-Stack & Interactive Web Applications</h4>
+                <p>Engineered loan management systems, student portals, and corporate web platforms using React.</p>
+              </div>
+            </div>
 
-        <p className="slide-in">
-          My journey in technology started with curiosity about how websites,
-          networks, and systems work behind the scenes. Over time, I developed
-          skills in web development, networking, and system design through
-          academic learning and hands-on projects.
-        </p>
+            <div className="exp-item">
+              <FaCheckCircle className="exp-icon" />
+              <div>
+                <h4>Enterprise & Campus Networking</h4>
+                <p>Simulated multi-building network topologies using Cisco Packet Tracer with strict security segmentation.</p>
+              </div>
+            </div>
 
-        <p className="slide-in delay">
-          From basic HTML pages to building full-stack applications and designing
-          campus network infrastructures, I have continuously grown through practice,
-          experimentation, and problem-solving.
-        </p>
+            <div className="exp-item">
+              <FaCheckCircle className="exp-icon" />
+              <div>
+                <h4>AI Performance Analytics</h4>
+                <p>Constructed data models designed to forecast academic trends and support decision-making.</p>
+              </div>
+            </div>
 
-        {/* ================= EDUCATION JOURNEY ================= */}
+            <div className="exp-item">
+              <FaCheckCircle className="exp-icon" />
+              <div>
+                <h4>Virtualization & Homelab Hosting</h4>
+                <p>Configured Linux instances, web servers, and isolated environments using Proxmox VE.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <h2 className="fade-in">Education Journey</h2>
+        {/* EDUCATION & EVOLUTION */}
+        <div className="about-block">
+          <h2 className="block-heading">Learning Journey</h2>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-badge"><FaGraduationCap /></div>
+              <div className="timeline-content">
+                <h3>Fundamentals & System Architecture</h3>
+                <p>Gained a grounding in computer hardware, basic OS architecture, and core programming paradigms.</p>
+              </div>
+            </div>
 
-        <ul className="skills-list">
+            <div className="timeline-item">
+              <div className="timeline-badge"><FaCode /></div>
+              <div className="timeline-content">
+                <h3>Full-Stack & Web Mastery</h3>
+                <p>Mastered modern web development focusing heavily on component-driven frontend architecture with React.</p>
+              </div>
+            </div>
 
-          <li>
-            Started with fundamentals of computer systems and programming basics
-          </li>
+            <div className="timeline-item">
+              <div className="timeline-badge"><FaNetworkWired /></div>
+              <div className="timeline-content">
+                <h3>Networking & Cyber Infrastructure</h3>
+                <p>Deep-dived into TCP/IP, IP subnetting, Cisco switching/routing, VLAN configurations, and security protocols.</p>
+              </div>
+            </div>
 
-          <li>
-            Learned web development (HTML, CSS, JavaScript, React)
-          </li>
+            <div className="timeline-item">
+              <div className="timeline-badge"><FaRocket /></div>
+              <div className="timeline-content">
+                <h3>Advanced IT & AI Integration</h3>
+                <p>Currently expanding capabilities into machine learning workflows, advanced system design, and AI automation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <li>
-            Studied networking concepts including IP addressing, routing, and VLANs
-          </li>
-
-          <li>
-            Explored cybersecurity principles and system protection
-          </li>
-
-          <li>
-            Currently pursuing advanced IT studies (software engineering & AI systems)
-          </li>
-
-        </ul>
-
-        {/* ================= EXPERIENCE ================= */}
-
-        <h2 className="fade-in">Experience</h2>
-
-        <ul className="skills-list">
-
-          <li>
-            Built multiple web applications using React and JavaScript
-          </li>
-
-          <li>
-            Designed and configured campus network topologies using Cisco Packet Tracer
-          </li>
-
-          <li>
-            Developed student management and hospital information systems
-          </li>
-
-          <li>
-            Worked on AI-based student performance prediction project
-          </li>
-
-          <li>
-            Practiced Linux server management and virtualization (Proxmox)
-          </li>
-
-        </ul>
-
-        {/* ================= WHAT I DO ================= */}
-
-        <h2 className="fade-in">What I Do</h2>
-
-        <ul className="skills-list">
-
-          <li>Frontend Development (React, HTML, CSS, JavaScript)</li>
-          <li>Backend & API Development</li>
-          <li>Network Design & Configuration</li>
-          <li>AI & Data-driven Projects</li>
-          <li>UI/UX Design</li>
-
-        </ul>
-
-        {/* ================= GOAL ================= */}
-
-        <h2 className="fade-in">My Goal</h2>
-
-        <p className="slide-in">
-          To build impactful digital systems that solve real problems and improve user experiences
-          while continuously growing in software engineering and networking.
-        </p>
-
+        {/* CALL TO ACTION / GOAL */}
+        <div className="about-goal-box">
+          <h2>My Goal</h2>
+          <p>
+            To continuously engineer reliable, high-impact digital infrastructures and web platforms that solve complex software and network engineering problems.
+          </p>
+          <div className="goal-actions">
+            <Link to="/projects" className="btn-primary">View My Projects</Link>
+            <Link to="/contacts" className="btn-secondary">Get In Touch</Link>
+          </div>
+        </div>
       </div>
-
     </section>
   );
 }

@@ -1,147 +1,229 @@
-/* ================= EDUCATION PAGE ================= */
-
-.education-hero {
+/* =======================================
+   EDUCATION PAGE STYLES
+======================================= */
+.education-section {
+  padding: 80px 20px;
+  background-color: #08111f;
+  color: #f1f5f9;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #0f1b2e, #08111f);
-  color: white;
-  padding: 100px 10%;
 }
 
 .education-container {
-  max-width: 1000px;
-  margin: auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* ================= TITLES ================= */
-
-.education-container h1 {
-  font-size: 55px;
+/* Header */
+.education-header {
   text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px auto;
+}
+
+.section-subtitle {
   color: #38bdf8;
-  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.highlight {
+  color: #38bdf8;
 }
 
 .education-intro {
-  text-align: center;
-  max-width: 750px;
-  margin: 0 auto 60px;
-  font-size: 18px;
-  color: #cbd5e1;
-  line-height: 1.8;
-}
-
-/* ================= CARD ================= */
-
-.education-card {
-  display: flex;
-  gap: 40px;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 40px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.4s ease;
-
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 0.8s forwards;
-}
-
-.education-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
-}
-
-/* ================= YEAR ================= */
-
-.education-year {
-  min-width: 200px;
-}
-
-.education-year h2 {
-  color: #38bdf8;
-  font-size: 22px;
-}
-
-/* ================= DETAILS ================= */
-
-.education-details h2 {
-  margin-bottom: 10px;
-}
-
-.education-details h3 {
+  font-size: 16px;
   color: #94a3b8;
-  margin-bottom: 15px;
+  line-height: 1.7;
 }
 
-.education-details p {
+/* Timeline Container */
+.education-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Vertical Connecting Line */
+.education-timeline::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 24px;
+  width: 2px;
+  background: rgba(56, 189, 248, 0.2);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Timeline Badge Icon */
+.timeline-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 2px solid #38bdf8;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
+
+/* Timeline Card */
+.timeline-card {
+  flex-grow: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Titles */
+.card-header-flex {
+  margin-bottom: 16px;
+}
+
+.timeline-period {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.degree-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.institution-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.card-description {
+  font-size: 14.5px;
   color: #cbd5e1;
-  line-height: 1.8;
-  margin-bottom: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.education-details h4 {
+.skills-heading {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 12px;
+}
+
+/* Tags Cloud */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 12.5px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.tag.highlight-tag {
   color: #38bdf8;
-  margin-top: 10px;
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
 }
 
-/* ================= LIST ================= */
-
-.education-details ul {
-  padding-left: 20px;
+/* Bullet List */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.education-details li {
-  margin-bottom: 10px;
-  transition: 0.3s;
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.5;
 }
 
-.education-details li:hover {
+.check-icon {
   color: #38bdf8;
-  transform: translateX(10px);
+  font-size: 15px;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
-/* ================= ANIMATION DELAYS ================= */
-
-.slide-up {
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.delay-1 {
-  animation-delay: 0.2s;
-}
-
-.delay-2 {
-  animation-delay: 0.4s;
-}
-
-.delay-3 {
-  animation-delay: 0.6s;
-}
-
-/* ================= ANIMATION ================= */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ================= RESPONSIVE ================= */
-
+/* Responsive */
 @media (max-width: 768px) {
-  .education-card {
-    flex-direction: column;
-    padding: 25px;
+  .education-section {
+    padding: 60px 16px;
   }
 
-  .education-container h1 {
-    font-size: 35px;
+  .section-title {
+    font-size: 28px;
+  }
+
+  .education-timeline::before {
+    left: 18px;
+  }
+
+  .timeline-badge {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .timeline-card {
+    padding: 20px;
+  }
+
+  .degree-title {
+    font-size: 18px;
   }
 }

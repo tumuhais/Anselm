@@ -14,6 +14,7 @@ import Projects from "./Projects";
 import Education from "./Education";
 import Contacts from "./Contacts";
 import AdminLogin from "./AdminLogin"; // Admin route import
+import FAQ from "./FAQ"; // FAQ page import
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/education" element={<Education />} />
             <Route path="/contacts" element={<Contacts />} />
-            
+            <Route path="/faq" element={<FAQ />} />
             {/* Admin Route to view client inquiries */}
             <Route path="/admin" element={<AdminLogin />} />
           </Routes>

@@ -62,6 +62,11 @@ function Header() {
                 Contacts
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/faq" onClick={closeMobileMenu}>
+                FAQ
+              </NavLink>
+            </li>
             {/* Admin Link Added Here */}
             <li>
               <NavLink to="/admin" onClick={closeMobileMenu}>

@@ -3,6 +3,7 @@ import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { db, auth } from "./firebase";
 import { FaTrash, FaSignOutAlt, FaEnvelope } from "react-icons/fa";
+import SEO from "./SEO"; // 1. Import SEO component
 
 function AdminDashboard({ user, onLogout }) {
   const [messages, setMessages] = useState([]);
@@ -44,49 +45,58 @@ function AdminDashboard({ user, onLogout }) {
   };
 
   return (
-    <div style={{ maxWidth: "900px", margin: "40px auto", padding: "20px", color: "#fff" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px", borderBottom: "1px solid #374151", paddingBottom: "15px" }}>
-        <h2><FaEnvelope style={{ color: "#00f0ff" }} /> Client Inquiries Inbox</h2>
-        <div>
-          <span style={{ marginRight: "15px", color: "#9ca3af" }}>{user.email}</span>
-          <button
-            onClick={handleSignOut}
-            style={{ padding: "8px 15px", background: "#ef4444", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}
-          >
-            <FaSignOutAlt /> Logout
-          </button>
-        </div>
-      </div>
+    <>
+      {/* 2. Add dynamic SEO & prevent search engine indexing for the private Admin Dashboard */}
+      <SEO 
+        title="Admin Dashboard | Client Inquiries"
+        description="Private administrative portal for managing client inquiries and portfolio messages."
+        noindex={true}
+      />
 
-      {loading ? (
-        <p>Loading inquiries...</p>
-      ) : messages.length === 0 ? (
-        <p style={{ color: "#9ca3af" }}>No inquiries found in Firestore.</p>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-          {messages.map((msg) => (
-            <div key={msg.id} style={{ background: "#111827", border: "1px solid #374151", borderRadius: "8px", padding: "20px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
-                <div>
-                  <h3 style={{ margin: 0, color: "#00f0ff" }}>{msg.name}</h3>
-                  <a href={`mailto:${msg.email}`} style={{ color: "#9ca3af", textDecoration: "none", fontSize: "0.9rem" }}>
-                    {msg.email}
-                  </a>
-                </div>
-                <button
-                  onClick={() => handleDelete(msg.id)}
-                  style={{ background: "transparent", border: "1px solid #ef4444", color: "#ef4444", padding: "5px 10px", borderRadius: "4px", cursor: "pointer" }}
-                >
-                  <FaTrash /> Delete
-                </button>
-              </div>
-              <p style={{ fontWeight: "bold", margin: "10px 0 5px 0" }}>Subject: {msg.subject || "No Subject"}</p>
-              <p style={{ color: "#d1d5db", whiteSpace: "pre-wrap" }}>{msg.message}</p>
-            </div>
-          ))}
+      <div style={{ maxWidth: "900px", margin: "40px auto", padding: "20px", color: "#fff" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px", borderBottom: "1px solid #374151", paddingBottom: "15px" }}>
+          <h2><FaEnvelope style={{ color: "#00f0ff" }} /> Client Inquiries Inbox</h2>
+          <div>
+            <span style={{ marginRight: "15px", color: "#9ca3af" }}>{user.email}</span>
+            <button
+              onClick={handleSignOut}
+              style={{ padding: "8px 15px", background: "#ef4444", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}
+            >
+              <FaSignOutAlt /> Logout
+            </button>
+          </div>
         </div>
-      )}
-    </div>
+
+        {loading ? (
+          <p>Loading inquiries...</p>
+        ) : messages.length === 0 ? (
+          <p style={{ color: "#9ca3af" }}>No inquiries found in Firestore.</p>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+            {messages.map((msg) => (
+              <div key={msg.id} style={{ background: "#111827", border: "1px solid #374151", borderRadius: "8px", padding: "20px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                  <div>
+                    <h3 style={{ margin: 0, color: "#00f0ff" }}>{msg.name}</h3>
+                    <a href={`mailto:${msg.email}`} style={{ color: "#9ca3af", textDecoration: "none", fontSize: "0.9rem" }}>
+                      {msg.email}
+                    </a>
+                  </div>
+                  <button
+                    onClick={() => handleDelete(msg.id)}
+                    style={{ background: "transparent", border: "1px solid #ef4444", color: "#ef4444", padding: "5px 10px", borderRadius: "4px", cursor: "pointer" }}
+                  >
+                    <FaTrash /> Delete
+                  </button>
+                </div>
+                <p style={{ fontWeight: "bold", margin: "10px 0 5px 0" }}>Subject: {msg.subject || "No Subject"}</p>
+                <p style={{ color: "#d1d5db", whiteSpace: "pre-wrap" }}>{msg.message}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

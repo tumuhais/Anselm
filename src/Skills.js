@@ -15,6 +15,7 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { SiCisco, SiProxmox, SiMysql, SiFirebase } from "react-icons/si";
+import SEO from "./SEO"; // 1. Import SEO component
 import "./Skills.css";
 
 const SKILL_CATEGORIES = [
@@ -61,50 +62,59 @@ const SKILL_CATEGORIES = [
 
 function Skills() {
   return (
-    <section className="skills-section">
-      <div className="skills-container">
-        {/* Header */}
-        <div className="skills-header">
-          <span className="section-subtitle">Technical Competencies</span>
-          <h1 className="section-title">
-            Skills & <span className="highlight">Technologies</span>
-          </h1>
-          <p className="skills-intro">
-            A comprehensive breakdown of the frameworks, networking protocols, operating systems, and developer tools I utilize to construct resilient digital solutions.
-          </p>
-        </div>
+    <>
+      {/* 2. Add dynamic SEO meta tags for the Skills & Technologies page */}
+      <SEO
+        title="Skills & Technologies | Web Engineering, Networking & Linux"
+        description="Explore Anselm Tumuhaise's technical stack: React.js, JavaScript, Cisco networking, Linux administration, Proxmox virtualization, MySQL, and cybersecurity protocols."
+        keywords="React.js, JavaScript, Cisco Packet Tracer, VLANs, Subnetting, Linux administration, Proxmox VE, Firebase, MySQL, Git, Anselm Tumuhaise skills"
+      />
 
-        {/* Skill Category Cards */}
-        <div className="categories-grid">
-          {SKILL_CATEGORIES.map((category, idx) => {
-            const CategoryIcon = category.icon;
-            return (
-              <div key={idx} className="category-card">
-                <div className="category-header">
-                  <CategoryIcon className="category-icon" />
-                  <h2>{category.title}</h2>
-                </div>
+      <section className="skills-section">
+        <div className="skills-container">
+          {/* Header */}
+          <div className="skills-header">
+            <span className="section-subtitle">Technical Competencies</span>
+            <h1 className="section-title">
+              Skills & <span className="highlight">Technologies</span>
+            </h1>
+            <p className="skills-intro">
+              A comprehensive breakdown of the frameworks, networking protocols, operating systems, and developer tools I utilize to construct resilient digital solutions.
+            </p>
+          </div>
 
-                <div className="skills-list">
-                  {category.skills.map((skill, skillIdx) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <div key={skillIdx} className="skill-item">
-                        <div className="skill-info">
-                          <SkillIcon className="skill-icon" />
-                          <span className="skill-name">{skill.name}</span>
+          {/* Skill Category Cards */}
+          <div className="categories-grid">
+            {SKILL_CATEGORIES.map((category, idx) => {
+              const CategoryIcon = category.icon;
+              return (
+                <div key={idx} className="category-card">
+                  <div className="category-header">
+                    <CategoryIcon className="category-icon" />
+                    <h2>{category.title}</h2>
+                  </div>
+
+                  <div className="skills-list">
+                    {category.skills.map((skill, skillIdx) => {
+                      const SkillIcon = skill.icon;
+                      return (
+                        <div key={skillIdx} className="skill-item">
+                          <div className="skill-info">
+                            <SkillIcon className="skill-icon" />
+                            <span className="skill-name">{skill.name}</span>
+                          </div>
+                          <span className="skill-badge">{skill.level}</span>
                         </div>
-                        <span className="skill-badge">{skill.level}</span>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaQuestionCircle, FaEnvelope } from "react-icons/fa";
+import SEO from "./SEO"; // 1. Import SEO component
 import "./FAQ.css";
 
 const FAQ_CATEGORIES = [
@@ -79,36 +80,36 @@ const FAQ_DATA = [
     answer: "I deploy web applications on high-performance platforms such as Vercel, Netlify, Firebase Hosting, or custom Linux VPS instances depending on your backend needs."
   },
 
-  // --- Process & Pricing ---
+  // --- Process & Pricing (UPDATED WITH UGX TIERS) ---
   {
     id: 11,
     category: "Process & Pricing",
-    question: "How much does a typical website or network project cost?",
-    answer: "Pricing depends on scope, number of pages, and technical complexity. Basic websites start around $300-$500, while custom full-stack web applications or full network designs are quoted based on detailed project specifications."
+    question: "What is the cost of a Basic Website (UGX 500,000 – 1,000,000)?",
+    answer: "Suitable for standard 6-page sites (Home, About, Services, Gallery, Contact, FAQ). Includes responsive design, a functional contact form, Google Maps integration, social media links, and smooth basic animations."
   },
   {
     id: 12,
     category: "Process & Pricing",
-    question: "What are your standard payment terms for freelance work?",
-    answer: "Projects typically run on a 50/50 payment split: a 50% deposit before work begins, and the remaining 50% upon final review, approval, and live deployment."
+    question: "What is included in a Standard Business Website (UGX 1,000,000 – 2,500,000)?",
+    answer: "Includes everything in the Basic package plus modern UI/UX design, custom graphics/icons, an optional admin panel, Blog or News section, on-page SEO optimization, fast loading speeds, and domain/hosting setup."
   },
   {
     id: 13,
     category: "Process & Pricing",
-    question: "How long does it take to complete a project?",
-    answer: "A standard 5-to-6 page portfolio or business website takes about 1 to 2 weeks. Custom web apps with backend databases or complex network topology projects take around 2 to 4 weeks."
+    question: "What features come with a Premium Website (UGX 2,500,000 – 5,000,000+)?",
+    answer: "Designed for full custom web applications. Includes user accounts & login authentication, database integration, payment gateway implementation, admin dashboards, booking systems, API integrations, and advanced security hardening."
   },
   {
     id: 14,
     category: "Process & Pricing",
-    question: "Who provides the website copy, images, and brand assets?",
-    answer: "Clients generally provide logos, text copy, and images. However, I can also source high-quality stock photography, configure UI icons, and assist in structuring content for optimal user engagement."
+    question: "What are your standard payment terms for freelance work?",
+    answer: "Projects typically run on a 50/50 payment split: a 50% deposit before development begins, and the remaining 50% due upon final review, testing approval, and live deployment."
   },
   {
     id: 15,
     category: "Process & Pricing",
-    question: "How do we get started on a new project?",
-    answer: "Simply submit an inquiry via the Contact page with your project goals! I will review your requirements, follow up with a proposal/quote, and schedule an initial discovery discussion."
+    question: "How long does it take to complete a website project?",
+    answer: "Basic websites typically take 1 week, Standard Business websites take 1 to 2 weeks, and Premium custom web applications/network topology setups take around 2 to 4 weeks depending on scope."
   }
 ];
 
@@ -125,70 +126,79 @@ function FAQ() {
     : FAQ_DATA.filter((faq) => faq.category === selectedCategory);
 
   return (
-    <main className="faq-container">
-      <section className="faq-hero">
-        <span className="badge">Got Questions?</span>
-        <h1>Frequently Asked Questions</h1>
-        <p>Explore 15 detailed answers regarding my web development, networking, database, and workflow processes.</p>
-      </section>
+    <>
+      {/* 2. Add dynamic SEO tags tailored for FAQ page */}
+      <SEO 
+        title="FAQ & Web Packages Pricing"
+        description="Frequently asked questions about web development packages (Basic, Standard Business, Premium in UGX), network engineering, databases, and IT workflows."
+        keywords="web package pricing UGX, website cost Uganda, React developer FAQ, Cisco network setup FAQ, Anselm Tumuhaise"
+      />
 
-      {/* Category Filter Tabs */}
-      <div className="faq-categories">
-        {FAQ_CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            className={`category-btn ${selectedCategory === cat ? "active" : ""}`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <main className="faq-container">
+        <section className="faq-hero">
+          <span className="badge">Got Questions?</span>
+          <h1>Frequently Asked Questions</h1>
+          <p>Explore detailed answers regarding web development packages, pricing in UGX, networking, and workflows.</p>
+        </section>
 
-      {/* Accordion List */}
-      <div className="faq-list">
-        {filteredFaqs.map((faq) => {
-          const isOpen = openId === faq.id;
-          return (
-            <div key={faq.id} className={`faq-card ${isOpen ? "open" : ""}`}>
-              <button
-                className="faq-question-btn"
-                onClick={() => toggleAccordion(faq.id)}
-                aria-expanded={isOpen}
-              >
-                <span className="faq-question-text">
-                  <FaQuestionCircle className="faq-icon" /> {faq.question}
-                </span>
-                <FaChevronDown className={`chevron-icon ${isOpen ? "rotate" : ""}`} />
-              </button>
+        {/* Category Filter Tabs */}
+        <div className="faq-categories">
+          {FAQ_CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              className={`category-btn ${selectedCategory === cat ? "active" : ""}`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="faq-answer-wrapper"
-                  >
-                    <p className="faq-answer">{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
-      </div>
+        {/* Accordion List */}
+        <div className="faq-list">
+          {filteredFaqs.map((faq) => {
+            const isOpen = openId === faq.id;
+            return (
+              <div key={faq.id} className={`faq-card ${isOpen ? "open" : ""}`}>
+                <button
+                  className="faq-question-btn"
+                  onClick={() => toggleAccordion(faq.id)}
+                  aria-expanded={isOpen}
+                >
+                  <span className="faq-question-text">
+                    <FaQuestionCircle className="faq-icon" /> {faq.question}
+                  </span>
+                  <FaChevronDown className={`chevron-icon ${isOpen ? "rotate" : ""}`} />
+                </button>
 
-      {/* Contact CTA */}
-      <div className="faq-cta">
-        <h2>Still have an unanswered question?</h2>
-        <p>Feel free to reach out directly through the contact page for customized inquiries.</p>
-        <Link to="/contacts" className="btn btn-primary">
-          <FaEnvelope className="btn-icon" /> Start a Conversation
-        </Link>
-      </div>
-    </main>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="faq-answer-wrapper"
+                    >
+                      <p className="faq-answer">{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="faq-cta">
+          <h2>Still have unanswered questions?</h2>
+          <p>Visit the contact page to get in touch directly.</p>
+          <Link to="/contacts" className="btn btn-primary">
+            <FaEnvelope className="btn-icon" /> Get in Touch
+          </Link>
+        </div>
+      </main>
+    </>
   );
 }
 

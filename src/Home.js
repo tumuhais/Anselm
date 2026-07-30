@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
+import SEO from "./SEO"; // 1. Imported SEO component
 import { 
   FaReact, 
   FaHtml5, 
@@ -137,6 +138,13 @@ const fallDownVariant = {
 function Home() {
   return (
     <>
+      {/* 2. Added dynamic SEO tags for Home page */}
+      <SEO 
+        title="Home - Web Developer & Network Engineer" 
+        description="Portfolio of Anselm Tumuhaise. Architecting modern web applications, secure Cisco network infrastructures, and intelligent digital solutions."
+        keywords="Anselm Tumuhaise, Web Developer, Network Engineer, Cisco, React, IT Solutions Uganda, Portfolio"
+      />
+
       <main className="home-container">
         {/* ================= HERO SECTION ================= */}
         <section className="hero" aria-label="Introduction">

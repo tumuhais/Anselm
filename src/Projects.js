@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import {
   FaGithub,
   FaExternalLinkAlt,
-
   FaCode,
   FaNetworkWired,
   FaBrain,
 } from "react-icons/fa";
+import SEO from "./SEO"; // 1. Import SEO component
 import "./Projects.css";
 
 const PROJECTS_DATA = [
@@ -87,98 +87,107 @@ function Projects() {
       : PROJECTS_DATA.filter((project) => project.category === activeFilter);
 
   return (
-    <section className="projects-section">
-      <div className="projects-container">
-        {/* Header */}
-        <div className="projects-header">
-          <span className="section-subtitle">Portfolio & Work</span>
-          <h1 className="section-title">
-            Featured <span className="highlight">Projects</span>
-          </h1>
-          <p className="projects-intro">
-            A showcase of systems, network architectures, and software applications I've engineered across web development, networking, and artificial intelligence.
-          </p>
-        </div>
+    <>
+      {/* 2. Add dynamic SEO meta tags for the Projects page */}
+      <SEO 
+        title="Portfolio & Projects | senior software Engineer, Networking & AI"
+        description="Explore Anselm Tumuhaise's software engineering portfolio, featuring React web applications, campus network topologies, loan management systems, and AI analytics tools."
+        keywords="React portfolio, Cisco network projects, Nexora, Anso Tech, Loan management system, AI student performance predictor, campus network design"
+      />
 
-        {/* Filter Tabs */}
-        <div className="filter-tabs">
-          <button
-            className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
-            onClick={() => setActiveFilter("all")}
-          >
-            All Work
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "web" ? "active" : ""}`}
-            onClick={() => setActiveFilter("web")}
-          >
-            Web Apps
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "network" ? "active" : ""}`}
-            onClick={() => setActiveFilter("network")}
-          >
-            Networking
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "ai" ? "active" : ""}`}
-            onClick={() => setActiveFilter("ai")}
-          >
-            AI & Analytics
-          </button>
-        </div>
+      <section className="projects-section">
+        <div className="projects-container">
+          {/* Header */}
+          <div className="projects-header">
+            <span className="section-subtitle">Portfolio & Work</span>
+            <h1 className="section-title">
+              Featured <span className="highlight">Projects</span>
+            </h1>
+            <p className="projects-intro">
+              A showcase of systems, network architectures, and software applications I've engineered across web development, networking, and artificial intelligence.
+            </p>
+          </div>
 
-        {/* Projects Grid */}
-        <div className="projects-grid">
-          {filteredProjects.map((project) => {
-            const CardIcon = project.icon;
-            return (
-              <div key={project.id} className="project-card">
-                <div className="card-top">
-                  <div className="folder-icon-wrapper">
-                    <CardIcon className="project-type-icon" />
-                  </div>
-                  <div className="project-actions">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub Repository"
-                      className="icon-link"
-                    >
-                      <FaGithub />
-                    </a>
-                    {project.demo !== "#" && (
+          {/* Filter Tabs */}
+          <div className="filter-tabs">
+            <button
+              className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
+              onClick={() => setActiveFilter("all")}
+            >
+              All Work
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "web" ? "active" : ""}`}
+              onClick={() => setActiveFilter("web")}
+            >
+              Web Apps
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "network" ? "active" : ""}`}
+              onClick={() => setActiveFilter("network")}
+            >
+              Networking
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "ai" ? "active" : ""}`}
+              onClick={() => setActiveFilter("ai")}
+            >
+              AI & Analytics
+            </button>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="projects-grid">
+            {filteredProjects.map((project) => {
+              const CardIcon = project.icon;
+              return (
+                <div key={project.id} className="project-card">
+                  <div className="card-top">
+                    <div className="folder-icon-wrapper">
+                      <CardIcon className="project-type-icon" />
+                    </div>
+                    <div className="project-actions">
                       <a
-                        href={project.demo}
+                        href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Live Demo"
+                        aria-label="GitHub Repository"
                         className="icon-link"
                       >
-                        <FaExternalLinkAlt />
+                        <FaGithub />
                       </a>
-                    )}
+                      {project.demo !== "#" && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                          className="icon-link"
+                        >
+                          <FaExternalLinkAlt />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <h2 className="project-title">{project.title}</h2>
+                  <p className="project-desc">{project.description}</p>
+
+                  {/* Tech Stack Tags */}
+                  <div className="project-tags">
+                    {project.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="tag">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                <h2 className="project-title">{project.title}</h2>
-                <p className="project-desc">{project.description}</p>
-
-                {/* Tech Stack Tags */}
-                <div className="project-tags">
-                  {project.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

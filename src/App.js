@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Welcome / Loading Screen
+import WelcomeScreen from "./WelcomeScreen";
 
 // Layout Components
 import Header from "./Header";
@@ -17,8 +20,15 @@ import AdminLogin from "./AdminLogin"; // Admin route import
 import FAQ from "./FAQ"; // FAQ page import
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <Router>
+      {/* Displays WelcomeScreen on initial load, unmounts when animation finishes */}
+      {loading && (
+        <WelcomeScreen onFinished={() => setLoading(false)} />
+      )}
+
       <div className="app-container">
         {/* Header stays sticky at the top of every page */}
         <Header />

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaLaptopCode,
+  FaMobileAlt,
   FaNetworkWired,
   FaShieldAlt,
   FaRobot,
@@ -22,6 +23,18 @@ const SERVICES_DATA = [
       "Responsive Layouts & CSS Frameworks",
       "RESTful API Integration",
       "Frontend Performance Optimization",
+    ],
+  },
+  {
+    icon: FaMobileAlt,
+    title: "Mobile & Desktop Application Development",
+    description:
+      "Engineering seamless, cross-platform mobile and standalone desktop software built for performance, security, and exceptional user experiences.",
+    features: [
+      "Cross-Platform Mobile Apps (React Native)",
+      "Standalone Desktop Applications (Electron.js)",
+      "Offline-First Data Storage & Sync",
+      "Intuitive UI/UX & Native Desktop GUIs",
     ],
   },
   {
@@ -65,11 +78,11 @@ const SERVICES_DATA = [
 function Services() {
   return (
     <>
-      {/* 2. Add dynamic SEO meta tags for the Services & Expertise page */}
+      {/* 2. Dynamic SEO meta tags for Services & Technical Expertise */}
       <SEO 
-        title="Services & Technical Expertise | Web Engineering, Networking & AI"
-        description="Comprehensive technical services by Anselm Tumuhaise: React web application development, campus network infrastructure design, cybersecurity protocols, and AI automation workflows."
-        keywords="Web development services, React frontend engineering, Cisco network design, VLAN setup, network security, AI automation, Proxmox virtualization, technical consulting"
+        title="Services & Technical Expertise | Web, Mobile, Desktop Apps, Networking & AI"
+        description="Comprehensive technical services by Anselm Tumuhaise: Custom web, cross-platform mobile, and desktop application development, campus network infrastructure design, cybersecurity protocols, and AI automation workflows."
+        keywords="Web development services, Mobile app development, Desktop software, React Native, Electron, React frontend engineering, Cisco network design, VLAN setup, network security, AI automation, Proxmox virtualization, technical consulting"
       />
 
       <section className="services-section">
@@ -81,7 +94,7 @@ function Services() {
               Solutions Tailored to <span className="highlight">Your Needs</span>
             </h1>
             <p className="services-intro">
-              From modern web application development to complex campus network topologies, I provide comprehensive technical services built on industry standards.
+              From web, cross-platform mobile, and desktop applications to complex campus network topologies and automated systems, I deliver end-to-end technical solutions built on modern standards.
             </p>
           </div>
 
@@ -118,8 +131,8 @@ function Services() {
           {/* Call to Action Banner */}
           <div className="services-cta-box">
             <div className="cta-content">
-              <h2>Have a project or network in mind?</h2>
-              <p>Let's collaborate to build reliable software and secure infrastructures for your operations.</p>
+              <h2>Have a app project or network setup in mind?</h2>
+              <p>Let's collaborate to build reliable web, mobile, and desktop software, or configure secure infrastructure for your operations.</p>
             </div>
             <Link to="/contacts" className="cta-btn">
               Get Started

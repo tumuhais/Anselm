@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
-import SEO from "./SEO"; // 1. Imported SEO component
+import SEO from "./SEO";
 import { 
   FaReact, 
   FaHtml5, 
@@ -130,7 +130,7 @@ const fallDownVariant = {
     transition: {
       duration: 0.8,
       delay: delay,
-      ease: [0.25, 0.1, 0.25, 1.0], // Smooth ease curve
+      ease: [0.25, 0.1, 0.25, 1.0],
     },
   }),
 };
@@ -138,7 +138,6 @@ const fallDownVariant = {
 function Home() {
   return (
     <>
-      {/* 2. Added dynamic SEO tags for Home page */}
       <SEO 
         title="Home - Web Developer & Network Engineer" 
         description="Portfolio of Anselm Tumuhaise. Architecting modern web applications, secure Cisco network infrastructures, and intelligent digital solutions."
@@ -150,7 +149,6 @@ function Home() {
         <section className="hero" aria-label="Introduction">
           <div className="hero-left">
             
-            {/* 1. Name is placed first at the top & drops in first (delay: 0.1s) */}
             <motion.h3 
               custom={0.1}
               initial="hidden"
@@ -161,7 +159,6 @@ function Home() {
               Hi, I'm <span className="highlight">Anselm Tumuhaise</span>
             </motion.h3>
 
-            {/* 2. Welcome Badge drops in second (delay: 0.3s) */}
             <motion.div
               custom={0.3}
               initial="hidden"
@@ -171,7 +168,6 @@ function Home() {
               <span className="badge">Welcome to my portfolio</span>
             </motion.div>
 
-            {/* 3. Main Title drops in third (delay: 0.5s) */}
             <motion.h1
               custom={0.5}
               initial="hidden"
@@ -181,7 +177,6 @@ function Home() {
               Web Developer & Network Engineer
             </motion.h1>
 
-            {/* 4. Description paragraph drops in fourth (delay: 0.7s) */}
             <motion.p
               custom={0.7}
               initial="hidden"
@@ -193,7 +188,6 @@ function Home() {
               and seamless user experiences.
             </motion.p>
             
-            {/* 5. Buttons drop in fifth (delay: 0.9s) */}
             <motion.div 
               className="hero-buttons"
               custom={0.9}
@@ -218,7 +212,7 @@ function Home() {
             </motion.div>
           </div>
 
-          {/* 6. Profile Image drops in on the right (delay: 1.1s) */}
+          {/* HANGING TAG PROFILE IMAGE */}
           <motion.div 
             className="hero-right"
             custom={1.1}
@@ -226,8 +220,16 @@ function Home() {
             animate="visible"
             variants={fallDownVariant}
           >
-            <div className="profile-image-wrapper">
-              <img src={profile} alt="Anselm - Web Developer & Network Engineer" />
+            <div className="hanging-tag-container">
+              {/* Anchor Pin */}
+              <div className="hanging-pin"></div>
+
+              {/* Hanging Tag Card */}
+              <div className="hanging-card">
+                <div className="hole-punch"></div>
+                <img src={profile} alt="Anselm - Web Developer & Network Engineer" />
+                <span className="tag-label">Anselm Tumuhaise</span>
+              </div>
             </div>
           </motion.div>
         </section>

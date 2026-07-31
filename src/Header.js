@@ -20,7 +20,7 @@ function Header() {
         {/* Brand / Logo */}
         <div className="logo">
           <Link to="/" onClick={closeMobileMenu}>
-            <h2>Anselm<span className="dot">.</span></h2>
+            <h2>Anselm<span className="dot">.AT</span></h2>
           </Link>
         </div>
 

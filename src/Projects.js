@@ -3,6 +3,7 @@ import {
   FaGithub,
   FaExternalLinkAlt,
   FaCode,
+  FaMobileAlt,
   FaNetworkWired,
   FaBrain,
 } from "react-icons/fa";
@@ -76,6 +77,17 @@ const PROJECTS_DATA = [
     demo: "#",
     icon: FaCode,
   },
+  {
+    id: 7,
+    title: "Mobile & Desktop Application Development",
+    category: "apps",
+    description:
+      "A performant native mobile application engineered with React Native, supporting real-time data sync and intuitive navigation.",
+    tags: ["React Native", "JavaScript", "Mobile Design", "REST API"],
+    github: "https://github.com/tumuhais",
+    demo: "#",
+    icon: FaMobileAlt,
+  },
 ];
 
 function Projects() {
@@ -88,11 +100,11 @@ function Projects() {
 
   return (
     <>
-      {/* 2. Add dynamic SEO meta tags for the Projects page */}
+      {/* Dynamic SEO meta tags for the Projects page */}
       <SEO 
-        title="Portfolio & Projects | senior software Engineer, Networking & AI"
-        description="Explore Anselm Tumuhaise's software engineering portfolio, featuring React web applications, campus network topologies, loan management systems, and AI analytics tools."
-        keywords="React portfolio, Cisco network projects, Nexora, Anso Tech, Loan management system, AI student performance predictor, campus network design"
+        title="Portfolio & Projects | Senior Software Engineer, Networking & AI"
+        description="Explore Anselm Tumuhaise's software engineering portfolio, featuring React web applications, mobile & desktop software, campus network topologies, loan management systems, and AI analytics tools."
+        keywords="React portfolio, Senior Software Engineer, Cisco network projects, Nexora, Anso Tech, Mobile App Development, Loan management system, AI student performance predictor, campus network design"
       />
 
       <section className="projects-section">
@@ -104,7 +116,7 @@ function Projects() {
               Featured <span className="highlight">Projects</span>
             </h1>
             <p className="projects-intro">
-              A showcase of systems, network architectures, and software applications I've engineered across web development, networking, and artificial intelligence.
+              A showcase of systems, network architectures, and software applications I've engineered across web & mobile platforms, networking, and artificial intelligence.
             </p>
           </div>
 
@@ -121,6 +133,12 @@ function Projects() {
               onClick={() => setActiveFilter("web")}
             >
               Web Apps
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "apps" ? "active" : ""}`}
+              onClick={() => setActiveFilter("apps")}
+            >
+              Mobile & Desktop
             </button>
             <button
               className={`filter-btn ${activeFilter === "network" ? "active" : ""}`}
